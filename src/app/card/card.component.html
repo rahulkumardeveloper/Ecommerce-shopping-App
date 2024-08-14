@@ -1,0 +1,50 @@
+<button mat-raised-button color="primary" routerLink="/shoppingPage" style="margin: 10px;">Goto Back</button>
+<div style="float: right;">
+    <tr>
+        <strong>Total Price:<b>{{totalPrice |currency:'INR'}}</b></strong>
+        <button mat-raised-button color="primary" style="margin: 10px;" (click)="orderNow()">
+            Order Now
+        </button>
+    </tr>
+</div>
+<div style="margin: 10px;">
+    <table id="customers">
+        <tr>
+            <th>Sr.No.</th>
+            <th>Image</th>
+            <th>Category</th>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Add Quantity</th>
+            <th>Delete Product</th>
+        </tr>
+        <tr *ngFor="let emp of CartCommingData; let ind=index">
+            <td><b>{{ind+1}}</b></td>
+            <td><img src="{{emp.image}}" alt="imageNotFound" width="200px" height="100px"></td>
+            <td><b>{{emp.category| uppercase}}</b></td>
+            <td><b>{{emp.title| uppercase}}</b></td>
+            <td><b>{{emp.price|currency:'INR'}}</b></td>
+            <td>
+                <mat-card-actions style="text-align: center;">
+                    <button matTooltip="Increses" mat-raised-button color="accent" (click)="increment(emp.id,ind)">
+                        <mat-icon>add_circle_outline</mat-icon>
+                    </button>&nbsp;
+                    <span style="border: 1px solid blue; padding: 10px;"><strong>{{emp.quantity}}</strong></span>
+                    <button matTooltip="Dercreses" mat-raised-button color="primary" (click)="decrement(emp.id,ind)"
+                        [disabled]='quantitityStatus'>
+                        <mat-icon>remove_circle_outline</mat-icon>
+                    </button>
+                </mat-card-actions>
+            </td>
+            <td>
+                <mat-card-actions style="text-align: center;">
+                    <button matTooltip="Remove" mat-raised-button color="accent" (click)="deleteItem(ind,emp.id)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </mat-card-actions>
+            </td>
+
+        </tr>
+
+    </table>
+</div>

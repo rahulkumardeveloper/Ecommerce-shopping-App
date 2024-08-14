@@ -1,0 +1,31 @@
+<div>
+    <div style="text-align: center;margin: 10px;">
+        <button mat-button [matMenuTriggerFor]="menu"
+            style="font-size: 20px;letter-spacing: 1.2px; width: 220px;">Category</button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item *ngFor="let item of categorylist; let i = index" style="width: 220px;" value={{item}}
+                (click)="getCategory($event)">{{item}}</button>
+        </mat-menu>
+    </div>
+</div>
+<!--=====================================================-->
+<div class="parent" style="text-align: center;">
+    <mat-card class="example-card" *ngFor="let dataItem of allData; let i=index">
+        <mat-card-title>
+            <img mat-card-lg-image [src]='dataItem.image'>
+        </mat-card-title>
+        <mat-card-content style="padding: 10px;">
+            <h4>Category:<b>{{dataItem.category| uppercase}}</b></h4>
+            <h4>Price:<b>{{dataItem.price |currency:'INR'}}</b></h4>
+            <p>Rating:<b>{{dataItem.rating.rate}}</b></p>
+        </mat-card-content>
+        <mat-card-actions style="text-align: center;">
+            <button mat-raised-button color="accent" (click)="addTocard(dataItem.id)" [disabled]='dataItem.status'>
+                Add To Cart
+            </button>&nbsp;
+            <button mat-raised-button color="primary" (click)="Description(dataItem.id)" >
+               Details
+            </button>
+        </mat-card-actions>  
+    </mat-card>
+</div>

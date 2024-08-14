@@ -1,0 +1,80 @@
+<div id="formbox">
+  <h1>Registration Form</h1>
+  <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Enter Name :</mat-label>
+      <input matInput placeholder="Enter Name" formControlName="name">
+      <mat-error *ngIf="this.signupForm.controls['name'].errors">
+        <mat-error *ngIf="this.signupForm.controls['name'].errors['required']">
+          <strong>*Please Enter Name</strong>
+        </mat-error>
+        <mat-error *ngIf="this.signupForm.controls['name'].errors['minlength']">
+          <strong> *Name atlest 3 letter</strong>
+        </mat-error>
+      </mat-error>
+
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Enter Email :</mat-label>
+      <input matInput type="email" placeholder="Enter Email Id" formControlName="email">
+      <mat-error *ngIf="this.signupForm.controls['email'].errors">
+        <mat-error *ngIf="this.signupForm.controls['email'].errors['required']">
+          <strong>*Please Enter Email</strong>
+        </mat-error>
+        <mat-error *ngIf="this.signupForm.controls['email'].errors['email']">
+          <strong> *Please enter email format</strong>
+        </mat-error>
+      </mat-error>
+
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Enter Date :</mat-label>
+      <input matInput type="date" placeholder="Date of Birth" formControlName="dob">
+      <mat-error *ngIf="this.signupForm.controls['dob'].errors">
+        <mat-error *ngIf="this.signupForm.controls['dob'].errors['required']">
+          <strong>*Please Enter Date of Birth</strong>
+        </mat-error>
+      </mat-error>
+
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Enter Password :</mat-label>
+      <input matInput type="password" placeholder="Enter Password" formControlName="password">
+      <mat-error *ngIf="this.signupForm.controls['password'].errors">
+        <mat-error *ngIf="this.signupForm.controls['password'].errors['required']">
+          <strong>*Please Enter password</strong>
+        </mat-error>
+        <mat-error *ngIf="this.signupForm.controls['password'].errors['minlength']">
+          <strong> *Please enter 8 character</strong>
+        </mat-error>
+      </mat-error>
+    </mat-form-field>
+
+    
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Enter Confirm Password :</mat-label>
+      <input matInput type="password" placeholder="Enter Repeat password" formControlName="confirmPassword">
+
+      <mat-error *ngIf="this.signupForm.controls['confirmPassword'].errors">
+        <mat-error *ngIf="this.signupForm.controls['confirmPassword'].errors['required']">
+          <strong>*Please Enter confirmPassword</strong>
+        </mat-error>
+        <mat-error *ngIf="this.signupForm.controls['confirmPassword'].errors['mustMatch']">
+          <strong> *Please enter above Same Password </strong>
+        </mat-error>
+      </mat-error>
+    </mat-form-field>
+
+    <!-- <input type="submit"> -->
+    <div class="example-button-row">
+      <button mat-raised-button color="primary">Submit</button>
+      <button mat-raised-button color="accent" type="reset" (click)=resetData()>Reset</button>
+
+    </div>
+  </form>
+
+</div>

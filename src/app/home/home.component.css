@@ -1,0 +1,35 @@
+/* img{
+    width: 100%;
+    height: 700px;
+    float: right;
+} */
+
+.home img{
+    width: 100%;
+    height: 750px;
+    object-position: center;
+    object-fit: cover;
+    margin-top: 50px;
+}
+.homecontent{
+    color: black;
+    position: absolute;
+    top:50%;
+    left:40%;
+    transform: translate(-50%,-50%);
+}
+h1{
+    font-size: 50px;
+}
+a{
+    margin: 10px;
+}
+@media screen  and (max-width:600px){
+    .homecontent h1{
+        font-size: 40px;
+    }
+    img{
+        height: 700px; 
+        width: 100%; 
+    }
+}

@@ -1,0 +1,35 @@
+<div class="parent" style="margin-top:10px;display: flex;justify-content: left;align-items: center;height: 70vh;">
+    <mat-card class="example-card " style="width: 80%;">
+        <mat-card-title-group style="display: flex;width:100%;">
+            <mat-card-title>
+                <div style="position: relative;;">
+                    <img mat-card-lg-image [src]='singleDataComing.image' style="width:400px;height:400px;">
+                </div>
+            </mat-card-title>
+            <mat-card-content style="float:left;">
+                <table>
+                    <tr>
+                        <h4><b>Title:</b> {{singleDataComing.title | uppercase}}</h4>
+                    </tr>
+                    <tr>
+                        <h4><b>Price:</b> {{singleDataComing.price |currency:'INR'}}</h4>
+                    </tr>
+                    <tr>
+                        <p><b>Rating:</b> {{singleDataComing.rating.rate}}</p>
+                    </tr>
+                    <tr>
+                        <p><b>Details:</b> {{singleDataComing.description}}</p>
+                    </tr>
+                </table>
+            </mat-card-content>
+            
+        </mat-card-title-group>
+        <mat-divider></mat-divider>
+        <mat-card-actions>
+            <button mat-raised-button color="accent" style="text-align: center; width: 300px;"
+                routerLink="/shoppingPage">
+               Go to Booking
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</div>

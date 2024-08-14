@@ -1,0 +1,80 @@
+<div id="formbox"> 
+    <h1>Contact Details</h1>
+    <form  [formGroup]="contactForm" (ngSubmit)="onSend()">
+        
+         <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Enter Name :</mat-label>
+            <input matInput  placeholder="Enter Name" formControlName="name">
+
+            <mat-error *ngIf="this.contactForm.controls['name'].errors">
+              <mat-error *ngIf="this.contactForm.controls['name'].errors['required']">
+                <strong>*Please Enter name</strong>
+              </mat-error>
+              <mat-error *ngIf="this.contactForm.controls['name'].errors['minlength']">
+                <strong> *Please Enter atlest 3 letter</strong>
+              </mat-error>
+            </mat-error>
+          </mat-form-field>
+      
+        
+        
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Enter Email :</mat-label>
+            <input matInput type="email" placeholder="Enter Email Id" formControlName="email">
+
+            <mat-error *ngIf="this.contactForm.controls['email'].errors">
+              <mat-error *ngIf="this.contactForm.controls['email'].errors['required']">
+                <strong>*Please Enter Email</strong>
+              </mat-error>
+              <mat-error *ngIf="this.contactForm.controls['email'].errors['email']">
+                <strong> *Please Enter Email format</strong>
+              </mat-error>
+            </mat-error>
+          </mat-form-field>
+          
+
+        
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Enter Date :</mat-label>
+            <input matInput type="date" placeholder="Date of Birth" formControlName="dob">
+            <mat-error *ngIf="this.contactForm.controls['dob'].errors">
+              <mat-error *ngIf="this.contactForm.controls['dob'].errors['required']">
+                <strong>*Please Enter dob</strong>
+              </mat-error>
+            </mat-error>
+          </mat-form-field>
+
+        
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Enter Mobile :</mat-label>
+            <input matInput  type="number" placeholder="Enter Mobile number" formControlName="mobilenumber">
+            <mat-error *ngIf="this.contactForm.controls['mobilenumber'].errors">
+              <mat-error *ngIf="this.contactForm.controls['mobilenumber'].errors['required']">
+                <strong>*Please Enter Mobile Number</strong>
+              </mat-error>
+              <mat-error *ngIf="this.contactForm.controls['mobilenumber'].errors['minlength']">
+                <strong> *Please Enter 10 digit Mobile Number format</strong>
+              </mat-error>
+            </mat-error>
+          </mat-form-field>
+
+        
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Enter Location :</mat-label>
+            <input matInput type="text" placeholder="EnterLocation" formControlName="location">
+            <mat-error *ngIf="this.contactForm.controls['location'].errors">
+              <mat-error *ngIf="this.contactForm.controls['location'].errors['required']">
+                <strong>*Please Enter location</strong>
+              </mat-error>
+            </mat-error>
+          </mat-form-field>
+
+      
+       <div class="example-button-row">
+       <button mat-raised-button color="primary" type="submit">Send Data</button>
+       <button mat-raised-button color="accent" type="reset" (click)="resetData()">Reset</button>
+
+    </div>
+    </form>
+
+</div>

@@ -1,0 +1,20 @@
+
+<button mat-raised-button color="primary" (click)='getData()'>Show Data</button>
+<div *ngIf="isData">
+    <table id="customers" >
+            <tr >
+                <th>Sr.No.</th>
+                <th>Id</th>
+                <th>User Id</th>
+                <th>Title</th>
+                <th>Body</th>
+            </tr>
+            <tr *ngFor="let emp of apiData; let ind=index" >
+                <td>{{ind+1}}</td>
+                <td>{{emp.id}}</td>
+                <td>{{emp.userId}}</td>
+                <td>{{emp.title}}</td>
+                <td>{{emp.body}}</td>
+            </tr>
+    </table>
+</div>

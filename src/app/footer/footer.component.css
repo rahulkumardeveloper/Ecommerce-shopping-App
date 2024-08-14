@@ -1,0 +1,15 @@
+.main-footer {
+    background-color: blue;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    font-size: 10px;
+    position: fixed;
+    bottom: 0px;
+}
+.main-footer p b a{
+    color: white;
+}
+.main-footer p b a:hover{
+    color: lightgreen;
+}

@@ -1,0 +1,11 @@
+ .example-card {
+    width:700px;
+    min-height: 400px;
+    box-shadow: 2px 2px 3px 3px blue;
+    border-radius: 4px;
+    text-align: center;
+    float: left;
+    margin: auto;
+   
+  }
+   

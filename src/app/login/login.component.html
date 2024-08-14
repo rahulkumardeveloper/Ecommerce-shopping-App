@@ -1,0 +1,41 @@
+<div id="formbox">
+    <h1>Login Form</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Enter Email :</mat-label>
+            <input matInput type="email" placeholder="Enter Email Id" formControlName="email">
+            <mat-error *ngIf="this.loginForm.controls['email'].errors">
+                <mat-error *ngIf="this.loginForm.controls['email'].errors['required']">
+                  <strong>*Please Enter Email</strong>
+                </mat-error>
+                <mat-error *ngIf="this.loginForm.controls['email'].errors['email']">
+                  <strong> *Please enter email format</strong>
+                </mat-error>
+              </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Enter Password :</mat-label>
+            <input matInput type="password" placeholder="Enter Password" formControlName="password">
+            <mat-error *ngIf="this.loginForm.controls['password'].errors">
+                <mat-error *ngIf="this.loginForm.controls['password'].errors['required']">
+                  <strong>*Please Enter password</strong>
+                </mat-error>
+                <mat-error *ngIf="this.loginForm.controls['password'].errors['minlength']">
+                  <strong> *Please Enter 8 character</strong>
+                </mat-error>
+              </mat-error>
+        </mat-form-field>
+        
+        <div><p style="color: green;">{{massage}}</p></div>
+        <div class="example-button-row">
+            <button mat-raised-button color="primary" type="submit">Login</button>
+            <button mat-raised-button color="accent" type="reset" (click)=resetData()>Reset</button>
+
+            <hr>
+          <div> Goto <a routerLink="/reactiveform">Register</a></div>
+        </div>
+    </form>
+
+</div>
